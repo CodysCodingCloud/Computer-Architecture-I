@@ -169,7 +169,7 @@
     - Theoperator `+` isdistributiveover `*` that is, x + (y*z) = (x + y)*(x + z).
 5. sinverse
     - ∀ x∈B, ∃ x ∈ B st. x + x' = 1 and x * x' = 0.
-6. There exist at least two elements x, y H B such that x  y.
+6. There exist at least two elements x, y ∈ B such that x != y.
 
 ### 2.4 Basic Theorems and Properties of Boolean Algebra
 
@@ -210,7 +210,7 @@
 - Algebraic Maniputation => simplification of circuits => cost savings
 ![logic](./1.3-1.4_binary_logic_and_gates.png)
 - consensus theorum
-  - xy + x'z + yz = xy + x'z
+  - xy + x'z + yz = xy + x'z        yz absorbed
   - (x + y)(x' + z)(y + z) = (x + y)(x' + z) = x'y + xz
 - complement of a function
   - F => F' through DeMorgan's Theorum
@@ -304,7 +304,7 @@
     m1+m2+m3 => x+y
   - three-variable k-map
     ![three var k-map](./3.3_three_var_k-map.png)
-    - gray code sequence so that adjacent squares are only one bit diff
+    - gray code sequence, so that adjacent squares only have one bit diff
       - for any minterms next to each other, replace with one term keeping like literals, and removing dissimilar literal
         - inverse absorption
         - xy'z + xyz = xz

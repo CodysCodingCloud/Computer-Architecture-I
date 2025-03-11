@@ -260,6 +260,8 @@
 ![Digital Logic Gates](./2.5%20Digital%20Logic%20Gates.png)
 - Extension to Multiple Inputs
 - Positive and Negative Logic
+  - poositive logic system uses high voltage to represent 1
+  - negative logic system uses low voltage to represent 0
 
 ### 2.9 Integrated Circuits
 

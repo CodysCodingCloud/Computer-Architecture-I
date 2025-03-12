@@ -84,12 +84,18 @@ void KmapProblem::display_kmap() const {
   //   std::cout << '\n';
 }
 bool KmapProblem::is_gray(std::vector<int> term1, std::vector<int> term2) const {
-  int matches = 0;
+  int diffs = 0;
   for (int i = 0; i < _num_vars; i++) {
-    if (term1[i] == term2[i] && term1[i] != ABSORBED)
-      matches++;
+    if (term1[i] != term2[i] && term1[i] != ABSORBED && term2[i] != ABSORBED)
+      diffs++;
   }
-  return matches == 1;
+  std::cout << "is_gray: ";
+  display_term(term1);
+  std::cout << " == ";
+  display_term(term2);
+  std::cout << " diffs: " << diffs << std::endl;
+
+  return diffs == 1;
 };
 std::vector<int> KmapProblem::simplify_gray(const std::vector<int> term1, const std::vector<int> term2) const {
   std::vector<int> simp_term(3);
@@ -100,46 +106,78 @@ std::vector<int> KmapProblem::simplify_gray(const std::vector<int> term1, const 
       simp_term[i] = ABSORBED;
     }
   }
+  std::cout << "simplified term:  ";
+  display_term(simp_term);
+  std::cout << std::endl;
   return simp_term;
 };
-void KmapProblem::simplify_problem(std::vector<std::vector<int>> &problem, std::set<int> memo, int i_, int j_) {
-  std::vector<std::vector<int>> simp_terms;
-  //   std::set<int> memo;
-  //   did any in the outter loop get simplified
-  bool simped = false;
-  for (int i = i_; i < problem.size() - 1; i++) {
-    bool grouped_prev = false;
-    std::vector<int> term_simp;
-    for (int j = j_; i < problem.size(); i++) {
-      if (is_gray(problem[i], problem[j])) {
-        term_simp = simplify_gray(problem[i], problem[j]);
-        int temp_dupe = 0;
-        for (int n : term_simp) {
-          temp_dupe += pow(10, i) * n;
-        }
-        if (memo.find(temp_dupe) == memo.end()) {
-          if (simped) {
-
-            std::set<int> memo_copy = memo;
-            // memo_copy.
-            simplify_problem(simp_terms, memo_copy, i, j);
+bool KmapProblem::simplify_problem(std::vector<std::vector<int>> &problem, std::vector<std::vector<int>> simp_terms, std::set<int> memo, int i_, int j_) {
+  try {
+    //   std::vector<std::vector<int>> simp_terms;
+    //   std::set<int> memo;
+    //   did any in the outter loop get simplified
+    bool simped = false;
+    for (int i = i_; i < problem.size() - 1; i++) {
+      bool grouped_prev = false;
+      std::vector<int> term_simp;
+      for (int j = j_; j < problem.size(); i++) {
+        if (is_gray(problem[i], problem[j])) {
+          term_simp = simplify_gray(problem[i], problem[j]);
+          int temp_dupe = 0;
+          for (int k = 0; k < term_simp.size(); k++) {
+            std::cout << "temp_dupe3: " << term_simp[k] << std::endl;
+            temp_dupe += (pow(10, k) * (term_simp[k] == 1 ? 1 : 0));
+            std::cout << "temp_dupe4: " << temp_dupe << std::endl;
           }
-          memo.insert(temp_dupe);
-          std::cout << "temp_dupe: " << temp_dupe << std::endl;
-          grouped_prev = true;
-          simped = true;
+          if (memo.find(temp_dupe) == memo.end()) {
+            std::cout << "temp_dupe5: " << temp_dupe << std::endl;
+            if (simped) {
+              std::set<int> memo_copy = memo;
+              // memo_copy.
+              simplify_problem(problem, simp_terms, memo_copy, i, j);
+            }
+            memo.insert(temp_dupe);
+            grouped_prev = true;
+            simped = true;
+          }
         }
       }
+      if (grouped_prev) {
+        std::cout << "term adding simped: ";
+        display_term(term_simp);
+        std::cout << std::endl;
+        simp_terms.push_back(term_simp);
+      } else {
+        std::cout << "term adding unsimp: ";
+        display_term(problem[i]);
+        std::cout << std::endl;
+        simp_terms.push_back(problem[i]);
+      }
+      std::cout << "term added: ";
+      display_term(simp_terms[simp_terms.size() - 1]);
+      std::cout << std::endl;
     }
-    if (grouped_prev) {
-      simp_terms.push_back(term_simp);
+    if (simped) {
+      // may be further simplified
+      simplify_problem(problem, simp_terms, memo);
+    } else {
+      // no more simplification possible
+      _ans.push_back(simp_terms);
     }
+    return true;
+  } catch (const std::exception &e) {
+    std::cerr << "Standard exception: " << e.what() << std::endl;
+    return false;
   }
-  if (simped) {
-    // may be further simplified
-    simplify_problem(simp_terms, memo);
-  } else {
-    // no more simplification possible
-    _ans.push_back(simp_terms);
+};
+void KmapProblem::gen_ans() {
+  simplify_problem(_problem);
+};
+void KmapProblem::display_ans() {
+  gen_ans();
+  std::cout << "generating answers: " << _ans.size() << std::endl;
+  for (std::vector<std::vector<int>> ans : _ans) {
+    print(ans);
   }
+  std::cout << "all answers displayed" << std::endl;
 };

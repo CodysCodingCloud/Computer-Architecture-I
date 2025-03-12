@@ -6,6 +6,8 @@ int main() {
   KmapProblem k;
   //   k.print();
   k.display_kmap();
+  k.gen_ans();
+  k.display_ans();
   //   while (true) {
   //     cout << "menu" << endl;
   //     cout << "1) Option 1" << endl;

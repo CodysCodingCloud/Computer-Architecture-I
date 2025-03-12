@@ -2,6 +2,7 @@
 // #define KMAP_PROBLEM
 #pragma once
 
+#include <set>
 #include <string>
 #include <vector>
 int ABSORBED = 2;
@@ -22,9 +23,10 @@ class KmapProblem {
     bool is_gray(std::vector<int> term1, std::vector<int> term2) const;
     std::vector<int> simplify_gray(const std::vector<int> term1, const std::vector<int> term2) const;
     std::vector<int> simplify_term(const std::vector<int> term1, const std::vector<int> term2);
-    void simplify_problem(std::vector<std::vector<int>> &problem, std::set<int> memo = {}, int i = 0, int j = 1);
+    void simplify_problem(std::vector<std::vector<int>> &problem, std::set<int> memo = {}, int i_ = 0, int j_ = 1);
     void gen_problem(int custom_terms = 0);
-    void print() const;
+    void print(const std::vector<std::vector<int>> &standard_form) const;
+    void display_term(const std::vector<int> &term) const;
 };
 #include "kmap.cpp"
 // #endif

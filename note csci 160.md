@@ -242,7 +242,9 @@
         sum of minterms     F   ==  ∑(4,5,7)      ==  ∏(0,1,2,3,6)
         product of maxterms F'  ==  ∑(0,1,2,3,6)  ==  ∏(4,5,7)
   - **standard form**
-    - simplified sum of minterms or product of maxterms that does not need to include every literal
+    - sum of products or product of sums
+      - does not need to include every literal in each term like cannonical form
+      - sum of minterms or product of maxterms
       >
           F   ==  ∑(4,5,7)  ==  xy'z'+xy'z+xyz  ==  xy'??
 
@@ -272,7 +274,7 @@
   - medium scale integration (MSI) < 1000
     - elementary digital operations: decoders, adders, multiplexers
   - large scale integration (LSI) < 10000
-    - gigital systems: processors, memory chips, programmable logic
+    - digital systems: processors, memory chips, programmable logic
   - very large scale integration (VLSI) < millions
     - large memory arrays and complex microcomputer chips
 - Digital logic libraries

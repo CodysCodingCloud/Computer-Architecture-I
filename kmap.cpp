@@ -117,28 +117,53 @@ bool KmapProblem::simplify_problem(std::vector<std::vector<int>> &problem, std::
     //   std::set<int> memo;
     //   did any in the outter loop get simplified
     bool simped = false;
-    for (int i = i_; i < problem.size() - 1; i++) {
+    std::cout << "problem size: " << problem.size() << std::endl;
+    bool used_j = false;
+    for (int i = i_; i < problem.size(); i++) {
+      // int i = i_;
+      // do {
+      // check if it is the last element and if it was used to group or not
+      if (i == (problem.size() - 1)) {
+        if (memo.find(9) == memo.end()) {
+          std::cout << "9 not found" << std::endl;
+          simp_terms.push_back(problem[i]);
+        } else
+          std::cout << "9 found" << std::endl;
+        break;
+      }
       bool grouped_prev = false;
+      //   int index_simp_prev = -1;
       std::vector<int> term_simp;
-      for (int j = j_; j < problem.size(); i++) {
+      for (int j = used_j ? i + 1 : j_; j < problem.size(); j++) {
+        used_j = true;
+        std::cout << "index: " << i << " , " << j << std::endl;
         if (is_gray(problem[i], problem[j])) {
           term_simp = simplify_gray(problem[i], problem[j]);
           int temp_dupe = 0;
           for (int k = 0; k < term_simp.size(); k++) {
-            std::cout << "temp_dupe3: " << term_simp[k] << std::endl;
+            // std::cout << "temp_dupe3: " << term_simp[k] << std::endl;
             temp_dupe += (pow(10, k) * (term_simp[k] == 1 ? 1 : 0));
-            std::cout << "temp_dupe4: " << temp_dupe << std::endl;
+            // std::cout << "temp_dupe4: " << temp_dupe << std::endl;
           }
           if (memo.find(temp_dupe) == memo.end()) {
-            std::cout << "temp_dupe5: " << temp_dupe << std::endl;
+            // std::cout << "temp_dupe5: " << temp_dupe << std::endl;
             if (simped) {
               std::set<int> memo_copy = memo;
+              std::vector<std::vector<int>> simp_terms_copy = simp_terms;
+              simp_terms_copy.pop_back();
               // memo_copy.
-              simplify_problem(problem, simp_terms, memo_copy, i, j);
+              simplify_problem(problem, simp_terms_copy, memo_copy, i, j);
             }
             memo.insert(temp_dupe);
             grouped_prev = true;
             simped = true;
+            // check if this is the last elem
+            if (j == (problem.size() - 1)) {
+              std::cout << "add 9" << std::endl;
+              // add 9 to indicate that last elem was used to group
+              memo.insert(9);
+            }
+            std::cout << "memo added: " << temp_dupe << std::endl;
           }
         }
       }
@@ -156,10 +181,14 @@ bool KmapProblem::simplify_problem(std::vector<std::vector<int>> &problem, std::
       std::cout << "term added: ";
       display_term(simp_terms[simp_terms.size() - 1]);
       std::cout << std::endl;
+      //   i++;
     }
+    // while (i < problem.size() - 1);
+    std::cout << "simp so far: ";
+    print(simp_terms);
     if (simped) {
       // may be further simplified
-      simplify_problem(problem, simp_terms, memo);
+      simplify_problem(simp_terms);
     } else {
       // no more simplification possible
       _ans.push_back(simp_terms);
@@ -175,7 +204,9 @@ void KmapProblem::gen_ans() {
 };
 void KmapProblem::display_ans() {
   gen_ans();
-  std::cout << "generating answers: " << _ans.size() << std::endl;
+  std::cout << "generating [" << _ans.size() << "] answers for :";
+  print(_problem);
+  std::cout << std::endl;
   for (std::vector<std::vector<int>> ans : _ans) {
     print(ans);
   }

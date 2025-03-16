@@ -150,7 +150,8 @@ bool KmapProblem::simplify_problem(std::vector<std::vector<int>> &problem, std::
             if (simped) {
               std::set<int> memo_copy = memo;
               std::vector<std::vector<int>> simp_terms_copy = simp_terms;
-              simp_terms_copy.pop_back();
+              //   simp_terms_copy.pop_back();
+              simp_terms_copy.push_back(term_simp);
               // memo_copy.
               simplify_problem(problem, simp_terms_copy, memo_copy, i, j);
             }

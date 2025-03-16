@@ -312,10 +312,10 @@
       - for any minterms next to each other, replace with one term keeping like literals, and removing dissimilar literal
         - inverse absorption
         - xy'z + xyz = xz
-  - four-variable k-map
-    ![two var k-map](./3.8_four_var_k-map.png)
 
 ### 3.3 Four‐Variable K-Map
+
+  ![four var k-map](./3.8_four_var_k-map.png)
 
 ### 3.4 Product‐of‐Sums Simplification
 

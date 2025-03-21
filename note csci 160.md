@@ -333,11 +333,38 @@
 
 ### 4.1 Introduction
 
+- sequential circuits
+  - uses storage elements in addition to logic gates
+  - output depends on current inputs AND state of storage element
+    - uses output from prev inputs
+- combination circuits (focus)
+  - output depends on current inputs
+  - consists of only logic gates and inputs
+
 ### 4.2 Combinational Circuits
+
+- storage register -> n inputs -> Combinational circuit => m outputs -> storage register
+  - n inputs => 2^n possible outputs
+- curr task
+  1. analyze circuit behavior
+  2. circuit synthesis (optimized)
+  3. HDL model
+- standard circuits == integrated circuits
+  - common circuits used as foundations for other circuits
+  - adders, subtractors, comparators, decoders, encoders, and multiplexers
 
 ### 4.3 Analysis Procedure
 
+- The diagram of a combinational circuit has logic gates with no feedback paths or memory elements.
+- boolean algebra substituion
+
 ### 4.4 Design Procedure
+
+- specs ->logic diagram, design procedure
+  1. specifications => # inputs and outputs & assign symbols for each
+  2. derive truth table
+  3. optimize/simplify boolean function
+  4. draw logic diagram
 
 ### 4.5 Binary Adder–Subtractor
 

@@ -79,29 +79,29 @@
 ### 1.7 binary codes
 
 - 4 bit codes
+  - each of the following codes has a different set of unused bit combinations
   - BCD (8421)
-  - 4 digit binary representing [0 - 9] = [ 0000 - 1001 ]
-    - the rest of the combos are excess and unused
-  - every set of 4 represent a single digit in decimal
-        > (185)_10 == (0001 1000 0101)_BCD == (10111001)_2
+    - 4 digit binary representing [0 - 9] = [ 0000 - 1001 ]
+      - the rest of the combos are excess and unused
+    - every set of 4 represent a single digit in decimal
+          > (185)_10 == (0001 1000 0101)_BCD == (10111001)_2
   - ecxess-3 code (8421)- 0011
-  - 0 starts 3 ~ 0011     [ 0 - 9] == [0011 - 1100]
-  - 2421
-  - [0 - 9] == [ 0000 - 1111]
-  - 8,4,-2,1
-  - each method has a different set of unused bit combinations
+    - 0 starts 3 ~ 0011     [ 0 - 9] == [0011 - 1100]
+    - 2421
+    - [0 - 9] == [ 0000 - 1111]
+    - 8,4,-2,1
   - gray code
-  - for continously changing numbers
-  - difference between different digits is represented by single binary digit changes so that no intermediate carries are apparent
-    >
-        0000    0   1100    8
-        0001    1   1101    9
-        0011    2   1111    10
-        0010    3   1110    11
-        0110    4   1010    12
-        0111    5   1011    13
-        0101    6   1001    14
-        0100    7   1000    15
+    - for continously changing numbers
+    - difference between different digits is represented by single binary digit changes so that no intermediate carries are apparent
+      >
+          0000    0   1100    8
+          0001    1   1101    9
+          0011    2   1111    10
+          0010    3   1110    11
+          0110    4   1010    12
+          0111    5   1011    13
+          0101    6   1001    14
+          0100    7   1000    15
 
 - character representations
 
@@ -366,7 +366,18 @@
   3. optimize/simplify boolean function
   4. draw logic diagram
 
+![truth table](./4.2_BCD-to-Excess3.png)
+![kmap](./4.3_BCD-to-excess3_kmap.png)
+![logic diag](./4.4_BCD-to-excess3_logic_diag.png)
+
 ### 4.5 Binary Adder–Subtractor
+
+- carry
+  - when combination of bits produces more than one bit
+- half adder
+  - combination circuit that adding of 2 bits to produce two bits
+- full added
+  - combination of 2 half adders
 
 ### 4.6 Decimal Adder
 

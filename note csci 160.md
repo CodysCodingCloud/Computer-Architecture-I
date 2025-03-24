@@ -373,11 +373,15 @@
 ### 4.5 Binary Adder–Subtractor
 
 - carry
-  - when combination of bits produces more than one bit
+  - when augend and addend contain more significant bits, the carry is added to the next higher order pair of significant bits
 - half adder
   - combination circuit that adding of 2 bits to produce two bits
 - full added
   - combination of 2 half adders
+  - input of 3 bits (2 from digit and 1 from prev carry) => output 2 bits
+![half adder](./4.3-4.5_half_adder.png)
+![full adder](./4.4_full_adder_truthtable.png)
+![full adder](./4.5-4.7_full_adder_implementation.png)
 
 ### 4.6 Decimal Adder
 

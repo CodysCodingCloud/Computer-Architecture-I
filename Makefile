@@ -5,9 +5,10 @@ PROG ?= main
 
 OBJS = main.o
 
+all: $(PROG)
+
 mainprog: $(PROG)
 
-# .cpp.o:
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
@@ -17,11 +18,9 @@ $(PROG): $(OBJS)
 clean:
 	rm -rf $(PROG) *.o *.out
 
-rebuild: clean mainprog
+rebuild: clean all
 
 test: $(PROG)
 	./$(PROG)
 
-ct: rebuild test
-	rm -f *.o
-	
+run: all test clean

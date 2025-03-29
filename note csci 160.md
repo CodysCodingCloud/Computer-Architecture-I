@@ -340,6 +340,14 @@
 - combination circuits (focus)
   - output depends on current inputs
   - consists of only logic gates and inputs
+- binary analog signals -> boolean algebra -> logic gates -> binary codes
+  - analyze logic circuit behavior => circuit synthesis => HDL hardware description language for circuits
+- common circuits become integrated circuits in standard components
+  - widely used parts/ building blocks of a chip
+  - integrated circuits of (MSI) medium scale circuits
+  - standard cells in (VLSI) very large scale integrated circuits
+    - such as ASICs application-specific integrated circuits
+    - usage is analagous to multiple-IC MSI design
 
 ### 4.2 Combinational Circuits
 
@@ -355,7 +363,8 @@
 
 ### 4.3 Analysis Procedure
 
-- The diagram of a combinational circuit has logic gates with no feedback paths or memory elements.
+- combinational circuit diagram
+  - has logic gates with no feedback paths or memory elements.
 - boolean algebra substituion
 
 ### 4.4 Design Procedure
@@ -374,14 +383,17 @@
 
 - carry
   - when augend and addend contain more significant bits, the carry is added to the next higher order pair of significant bits
+  - augend but + addend bit = carry bit
 - half adder
   - combination circuit that adding of 2 bits to produce two bits
-- full added
+![half adder](./4.3-4.5_half_adder.png)
+- full adder
   - combination of 2 half adders
   - input of 3 bits (2 from digit and 1 from prev carry) => output 2 bits
-![half adder](./4.3-4.5_half_adder.png)
 ![full adder](./4.4_full_adder_truthtable.png)
 ![full adder](./4.5-4.7_full_adder_implementation.png)
+- adder-subtractor
+  - combinational circuit for binary     adding and subtraction
 
 ### 4.6 Decimal Adder
 

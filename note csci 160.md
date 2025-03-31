@@ -390,10 +390,12 @@
 - full adder
   - combination of 2 half adders
   - input of 3 bits (2 from digit and 1 from prev carry) => output 2 bits
-![full adder](./4.4_full_adder_truthtable.png)
-![full adder](./4.5-4.7_full_adder_implementation.png)
+  ![full adder](./4.4_full_adder_truthtable.png)
+  ![full adder](./4.5-4.7_full_adder_implementation.png)
 - adder-subtractor
-  - combinational circuit for binary     adding and subtraction
+  - combinational circuit for binary adding and subtraction
+- binary adder
+  ![full adder implement](./4.8_fulladder_implement2.png)
 
 ### 4.6 Decimal Adder
 
@@ -403,9 +405,24 @@
 
 ### 4.9 Decoders
 
+- combinational circuit for converting binary information
+  - n input lines => up to 2^n output lines
+  - n-to-m-line decoders, m <= 2^n
+    - ex: 3 to 8 line decoder == 3x8 decoder
+    - m ~ num of min terms
+    - only one of the outputs will be 1, rest = 0
+![3-to-8](./4.18_Three-to-eight-line_decoder.png)
+![3-to-8](./4.6_Truth_Table_Three-to-Eight-Line_Decoder.png)
+![4x16](./4.20_4x16_decoder_composite.png)
+
 ### 4.10 Encoders
 
+- reverse of decoder
+- 2^n input liens => n output lines
+
 ### 4.11 Multiplexers
+
+- ~data selector - selects on of the inputs and steers it to the output.
 
 ### 4.12 HDL Models of Combinational Circuits
 

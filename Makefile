@@ -23,4 +23,7 @@ rebuild: clean all
 test: $(PROG)
 	./$(PROG)
 
-run: all test clean
+run: 
+	$(MAKE) all 
+	$(MAKE) test 
+	$(MAKE) clean

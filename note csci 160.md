@@ -366,14 +366,22 @@
 - combinational circuit diagram
   - has logic gates with no feedback paths or memory elements.
 - boolean algebra substituion
+- reverse engineering from circuit diagram => truhtable => boolean function
+  1. get number of inputs
+  2. identify important intersections and outputs + label them
+  3. generate truth table for inputs for each layer of gates and identified gates
+  4. generate boolean function if not done already based on truth table
 
 ### 4.4 Design Procedure
 
-- specs ->logic diagram, design procedure
+- specs -> logic diagram, design procedure
   1. specifications => # inputs and outputs & assign symbols for each
+      - x,y,z => a,b,c
   2. derive truth table
   3. optimize/simplify boolean function
   4. draw logic diagram
+- design conciderations
+  - #inputs, #gates, propagation time, interconnections, driving capability of a gate
 
 ![truth table](./4.2_BCD-to-Excess3.png)
 ![kmap](./4.3_BCD-to-excess3_kmap.png)
@@ -384,18 +392,42 @@
 - carry
   - when augend and addend contain more significant bits, the carry is added to the next higher order pair of significant bits
   - augend but + addend bit = carry bit
-- half adder
-  - combination circuit that adding of 2 bits to produce two bits
+
+#### Half adder
+
+- combination circuit that adding of 2 bits to produce two bits
+  - S = xy' + x'y
+  - C = xy
 ![half adder](./4.3-4.5_half_adder.png)
-- full adder
-  - combination of 2 half adders
-  - input of 3 bits (2 from digit and 1 from prev carry) => output 2 bits
+
+#### Full adder
+
+- combination of 2 half adders
+  - S = x'y'z + z'yz' + xy'z + xyz  ==  xyz + (x⨁y)⨁z
+  - C = xy + xz +yz
+- input of 3 bits (2 from digit and 1 from prev carry) => output 2 bits
+- x, y, z => s, c
   ![full adder](./4.4_full_adder_truthtable.png)
   ![full adder](./4.5-4.7_full_adder_implementation.png)
-- adder-subtractor
-  - combinational circuit for binary adding and subtraction
-- binary adder
   ![full adder implement](./4.8_fulladder_implement2.png)
+
+#### Binary Adder
+
+- basic standard component
+- 4 + 4 + c = 9 inputs => 5 outputs => 2^9=512 different outputs
+- adding two 4 digit binaries to a 4 digit output and carry (5 digits)
+- combination of 4 fulladders in sequecne
+
+- Carry propagation
+  - total propagation time = avg gate propagation *  num of levels of gates
+  - limits the speed of addition, the most common arithmatic operation in circuits
+  - Parallel binary adders uses carry look ahead gerator circuit to save time
+  ![carry lookahead gen](./4.11_carry_look_ahead_generator.png)
+  ![4bit parallel adder](./4.12_4-bit_adder_with_carry.png)
+
+#### Adder-Subtractor
+
+- combinational circuit for binary adding and subtraction
 
 ### 4.6 Decimal Adder
 

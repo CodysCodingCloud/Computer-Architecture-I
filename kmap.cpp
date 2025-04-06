@@ -25,7 +25,7 @@ int KmapProblem::gen_memo_elem(std::vector<int> term) {
     for (int k = 0; k < term.size(); k++) {
         temp_elem += (pow(10, k) * (term[k] == 1 ? 1 : 0));
     }
-    return temp_elem
+    return temp_elem;
 };
 
 void KmapProblem::gen_problem(int custom_terms) {

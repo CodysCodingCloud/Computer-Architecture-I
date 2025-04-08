@@ -435,6 +435,8 @@
 
 ### 4.8 Magnitude Comparator
 
+![4b magnitude comparator](./4.17_Four-bit_magnitude_comparator.png)
+
 ### 4.9 Decoders
 
 - combinational circuit for converting binary information
@@ -444,17 +446,34 @@
     - m ~ num of min terms
     - only one of the outputs will be 1, rest = 0
 ![3-to-8](./4.18_Three-to-eight-line_decoder.png)
-![3-to-8](./4.6_Truth_Table_Three-to-Eight-Line_Decoder.png)
+![TT 3-to-8](./4.6_Truth_Table_Three-to-Eight-Line_Decoder.png)
 ![4x16](./4.20_4x16_decoder_composite.png)
+![decoder](./4.21_full_adder_w_decoder.png)
 
 ### 4.10 Encoders
 
 - reverse of decoder
 - 2^n input liens => n output lines
+![decoder](./4.7_TT_8-2_encoder.png)
+- Priority Encoder
+![decoder](./4.8_TT_Priority_Encoder.png)
+![decoder](./4.8_TT_Priority_Encoder.png)
+![decoder](./4.22_Priority_encoder_map.png)
 
 ### 4.11 Multiplexers
 
 - ~data selector - selects on of the inputs and steers it to the output.
+![decoder](./4.24_2-1_multiplexer.png)
+![decoder](./4.25_4-1_multiplexer.png)
+- Example
+![decoder](./4.26_quadruple_2-1_multiplexer.png)
+![decoder](./4.27_Bool_func_w_multiplexer.png)
+![decoder](./4.28_4_input_funct_w_multiplexer.png)
+- three state gates
+![decoder](./4.29_3_state_buffer.png)
+![decoder](./4.30_multiplexer_w_3_state_gate.png)
+<!-- ![decoder](./4) -->
+<!-- ![decoder](./4) -->
 
 ### 4.12 HDL Models of Combinational Circuits
 

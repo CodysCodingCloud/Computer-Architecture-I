@@ -133,7 +133,7 @@
         > [ 2 , 3 ] -> 1
         > ( 1 , 2 ) -> indeterminate
         > [ 0 , 1 ] -> 0
-![Timing Dagram 1.5](1.5-1.6_Timing_Diagram.png)
+![Timing Dagram 1.5](./img/1.5-1.6_Timing_Diagram.png)
 
 ## CH2 Boolean Algebra and Logic Gates
 
@@ -208,7 +208,7 @@
 - Boolean functions = binary var, const { 0, 1 }, logical operators
   - F_1 = x + y¹z, x=y=z=0 => 0 + 0¹*0 = 0+ 1*0 = 0
 - Algebraic Maniputation => simplification of circuits => cost savings
-![logic](./1.3-1.4_binary_logic_and_gates.png)
+![logic](./img/1.3-1.4_binary_logic_and_gates.png)
 - consensus theorum
   - xy + x'z + yz = xy + x'z        yz absorbed
   - (x + y)(x' + z)(y + z) = (x + y)(x' + z) = x'y + xz
@@ -248,18 +248,18 @@
       >
           F   ==  ∑(4,5,7)  ==  xy'z'+xy'z+xyz  ==  xy'??
 
-![minterm maxterm table](./2.3%20Minterms%20and%20Maxterms%20for%20Three%20Binary%20Variables.png)
+![minterm maxterm table](./img/2.3%20Minterms%20and%20Maxterms%20for%20Three%20Binary%20Variables.png)
   
 ### 2.7 Other Logic Operations
 
 - 2^2n = number of binary functions for `n` inputs
-![Boolean Expressions for 16 Functions](./2.8%20Boolean%20Expressions%20for%20the%2016%20Functions%20of%20Two%20Variables.png)
+![Boolean Expressions for 16 Functions](./img/2.8%20Boolean%20Expressions%20for%20the%2016%20Functions%20of%20Two%20Variables.png)
 
 ### 2.8 Digital Logic Gates
 
 - NOT ~ bubble ~ inverter ~ negation
 - triangle ~ buffer ~ transfer ~ no logic but amplifies signal
-![Digital Logic Gates](./2.5%20Digital%20Logic%20Gates.png)
+![Digital Logic Gates](./img/2.5%20Digital%20Logic%20Gates.png)
 - Extension to Multiple Inputs
 - Positive and Negative Logic
   - poositive logic system uses high voltage to represent 1
@@ -304,10 +304,10 @@
   1. conversion to standard form (sum of products || product of sums)
   2. use a graphical table to visually convert the standard form of minterms => to the optimized form with the minimum number of terms, and literals per term
   - two-variable k-map
-    ![two var k-map](./3.1_two_var_k-map.png)
+    ![two var k-map](./img/3.1_two_var_k-map.png)
     m1+m2+m3 => x+y
   - three-variable k-map
-    ![three var k-map](./3.3_three_var_k-map.png)
+    ![three var k-map](./img/3.3_three_var_k-map.png)
     - gray code sequence, so that adjacent squares only have one bit diff
       - for any minterms next to each other, replace with one term keeping like literals, and removing dissimilar literal
         - inverse absorption
@@ -315,7 +315,7 @@
 
 ### 3.3 Four‐Variable K-Map
 
-  ![four var k-map](./3.8_four_var_k-map.png)
+  ![four var k-map](./img/3.8_four_var_k-map.png)
 
 ### 3.4 Product‐of‐Sums Simplification
 
@@ -383,9 +383,9 @@
 - design conciderations
   - #inputs, #gates, propagation time, interconnections, driving capability of a gate
 
-![truth table](./4.2_BCD-to-Excess3.png)
-![kmap](./4.3_BCD-to-excess3_kmap.png)
-![logic diag](./4.4_BCD-to-excess3_logic_diag.png)
+![truth table](./img/4.2_BCD-to-Excess3.png)
+![kmap](./img/4.3_BCD-to-excess3_kmap.png)
+![logic diag](./img/4.4_BCD-to-excess3_logic_diag.png)
 
 ### 4.5 Binary Adder–Subtractor
 
@@ -398,7 +398,7 @@
 - combination circuit that adding of 2 bits to produce two bits
   - S = xy' + x'y
   - C = xy
-![half adder](./4.3-4.5_half_adder.png)
+![half adder](./img/4.3-4.5_half_adder.png)
 
 #### Full adder
 
@@ -407,9 +407,9 @@
   - C = xy + xz +yz
 - input of 3 bits (2 from digit and 1 from prev carry) => output 2 bits
 - x, y, z => s, c
-  ![full adder](./4.4_full_adder_truthtable.png)
-  ![full adder](./4.5-4.7_full_adder_implementation.png)
-  ![full adder implement](./4.8_fulladder_implement2.png)
+  ![full adder](./img/4.4_full_adder_truthtable.png)
+  ![full adder](./img/4.5-4.7_full_adder_implementation.png)
+  ![full adder implement](./img/4.8_fulladder_implement2.png)
 
 #### Binary Adder
 
@@ -422,8 +422,8 @@
   - total propagation time = avg gate propagation *  num of levels of gates
   - limits the speed of addition, the most common arithmatic operation in circuits
   - Parallel binary adders uses carry look ahead gerator circuit to save time
-  ![carry lookahead gen](./4.11_carry_look_ahead_generator.png)
-  ![4bit parallel adder](./4.12_4-bit_adder_with_carry.png)
+  ![carry lookahead gen](./img/4.11_carry_look_ahead_generator.png)
+  ![4bit parallel adder](./img/4.12_4-bit_adder_with_carry.png)
 
 #### Adder-Subtractor
 
@@ -435,7 +435,7 @@
 
 ### 4.8 Magnitude Comparator
 
-![4b magnitude comparator](./4.17_Four-bit_magnitude_comparator.png)
+![4b magnitude comparator](./img/4.17_Four-bit_magnitude_comparator.png)
 
 ### 4.9 Decoders
 
@@ -445,35 +445,35 @@
     - ex: 3 to 8 line decoder == 3x8 decoder
     - m ~ num of min terms
     - only one of the outputs will be 1, rest = 0
-![3-to-8](./4.18_Three-to-eight-line_decoder.png)
-![TT 3-to-8](./4.6_Truth_Table_Three-to-Eight-Line_Decoder.png)
-![4x16](./4.20_4x16_decoder_composite.png)
-![decoder](./4.21_full_adder_w_decoder.png)
+![3-to-8](./img/4.18_Three-to-eight-line_decoder.png)
+![TT 3-to-8](./img/4.6_Truth_Table_Three-to-Eight-Line_Decoder.png)
+![4x16](./img/4.20_4x16_decoder_composite.png)
+![decoder](./img/4.21_full_adder_w_decoder.png)
 
 ### 4.10 Encoders
 
 - reverse of decoder
 - 2^n input liens => n output lines
-![decoder](./4.7_TT_8-2_encoder.png)
+![decoder](./img/4.7_TT_8-2_encoder.png)
 - Priority Encoder
-![decoder](./4.8_TT_Priority_Encoder.png)
-![decoder](./4.8_TT_Priority_Encoder.png)
-![decoder](./4.22_Priority_encoder_map.png)
+![decoder](./img/4.8_TT_Priority_Encoder.png)
+![decoder](./img/4.8_TT_Priority_Encoder.png)
+![decoder](./img/4.22_Priority_encoder_map.png)
 
 ### 4.11 Multiplexers
 
 - ~data selector - selects on of the inputs and steers it to the output.
-![decoder](./4.24_2-1_multiplexer.png)
-![decoder](./4.25_4-1_multiplexer.png)
+![decoder](./img/4.24_2-1_multiplexer.png)
+![decoder](./img/4.25_4-1_multiplexer.png)
 - Example
-![decoder](./4.26_quadruple_2-1_multiplexer.png)
-![decoder](./4.27_Bool_func_w_multiplexer.png)
-![decoder](./4.28_4_input_funct_w_multiplexer.png)
+![decoder](./img/4.26_quadruple_2-1_multiplexer.png)
+![decoder](./img/4.27_Bool_func_w_multiplexer.png)
+![decoder](./img/4.28_4_input_funct_w_multiplexer.png)
 - three state gates
-![decoder](./4.29_3_state_buffer.png)
-![decoder](./4.30_multiplexer_w_3_state_gate.png)
-<!-- ![decoder](./4) -->
-<!-- ![decoder](./4) -->
+![decoder](./img/4.29_3_state_buffer.png)
+![decoder](./img/4.30_multiplexer_w_3_state_gate.png)
+<!-- ![decoder](./img/4) -->
+<!-- ![decoder](./img/4) -->
 
 ### 4.12 HDL Models of Combinational Circuits
 

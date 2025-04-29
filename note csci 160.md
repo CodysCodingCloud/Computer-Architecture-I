@@ -428,6 +428,7 @@
 #### Adder-Subtractor
 
 - combinational circuit for binary adding and subtraction
+  ![4bit adder subtractor](./img/4.13_four-bit_adder_subtractor_with_overflow_detector.png)
 
 ### 4.6 Decimal Adder
 
@@ -435,6 +436,7 @@
 
 ### 4.8 Magnitude Comparator
 
+![4b binary multiplier](./img/4.16_4b-3b_binary_multiplier.png)
 ![4b magnitude comparator](./img/4.17_Four-bit_magnitude_comparator.png)
 
 ### 4.9 Decoders
@@ -480,6 +482,8 @@
 ## 5 Synchronous Sequential Logic
 
 ### 5.1 Introduction
+
+- sequential circuits can store information in memory, register
 
 ### 5.2 Sequential Circuits
 

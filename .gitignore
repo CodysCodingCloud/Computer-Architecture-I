@@ -37,3 +37,4 @@ relative/path/to/dir/anotherfile
 *.epub
 *.pdf
 *.DS_Store
+*.numbers

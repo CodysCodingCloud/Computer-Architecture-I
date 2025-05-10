@@ -51,13 +51,18 @@
     - 1's complement
       - 111111 - N = complement
       - 1 => 0
-    - radix complement
-      - 1's complement + 1 ~ 2's complement
-- subtraction of M - N
+      - flip all bits 0101 => 1010
+    - radix complement (2s complement)
+      - 1's complement + 1 == 2's complement
+- subtraction of M - N = Minuend - Subtrahend
     > M - N
-    > = M  + (radix complement)
+    > = M  + (radix complement of N)
     > = M + ( r^n - N )
-    > = M - N + r^n       remove carry if pos else do another radix if no carry
+    > = M - N + r^n
+      - remove carry if pos else
+      - if no carry the answer is negative so do a radix on ans
+  - M + rc(N) == M + drc(N) + 1
+  - adding to dimished complement -> d complement => subtracting
 
 ### 1.6 signed binary numbers
 
@@ -86,9 +91,9 @@
     - every set of 4 represent a single digit in decimal
           > (185)_10 == (0001 1000 0101)_BCD == (10111001)_2
   - ecxess-3 code (8421)- 0011
-    - 0 starts 3 ~ 0011     [ 0 - 9] == [0011 - 1100]
+    - 0 starts 3 ~ 0011     [ 0 - 9 ] == [0011 - 1100]
     - 2421
-    - [0 - 9] == [ 0000 - 1111]
+    - binary                [ 0 - 15 ] == [ 0000 - 1111]
     - 8,4,-2,1
   - gray code
     - for continously changing numbers
@@ -248,12 +253,12 @@
       >
           F   ==  ∑(4,5,7)  ==  xy'z'+xy'z+xyz  ==  xy'??
 
-![minterm maxterm table](./img/2.3%20Minterms%20and%20Maxterms%20for%20Three%20Binary%20Variables.png)
+![minterm maxterm table](./img/2.3_Minterms_and_Maxterms_for_Three_Binary_Variables.png)
   
 ### 2.7 Other Logic Operations
 
 - 2^2n = number of binary functions for `n` inputs
-![Boolean Expressions for 16 Functions](./img/2.8%20Boolean%20Expressions%20for%20the%2016%20Functions%20of%20Two%20Variables.png)
+![Boolean Expressions for 16 Functions](./img/2.8_Boolean_Expressions_for_the_16_Functions_of_Two_Variables.png)
 
 ### 2.8 Digital Logic Gates
 
@@ -319,15 +324,55 @@
 
 ### 3.4 Product‐of‐Sums Simplification
 
+- using a different form using more OR Gates instead of AND gates
+  >
+    F = ∑(1,2)
+    F' = ∑(0,3)
+    F = ∏(1,2)
+
 ### 3.5 Don’t‐Care Conditions
 
+- Inputs that are unused, do not produce viable outputs
+- these nodes on the k-map can be concidered 0 or 1 depending on the need
+
 ### 3.6 NAND and NOR Implementation
+
+- NAND or NOR are universal gate that is used as the base of all gates
+- NAND and NOR gates are mroe frequently used because they are easier to create
+  - AND = NAND + Inverter
+  - OR = Inverter + NAND
+  ![NAND LOGIC](./img/3.16_Logic_ops_with_NAND_gates.png)
+- Sum of product forms can be simplified using 3 NAND gates instead of 2AND+OR
+  - F = AB + CD = ((AB)'(CD)')'
+  ![ex](./img/3.18_Three_ways_to_implement_F=AB+CD.png)
+- using NOR gates as the universal base
+  - used in product of sum forms = 3 NOR gates
+  - AND = 2 inverter + NOR
+  - OR = NOR + interter
+  ![NOR LOGIC](./img/3.22_Logic_ops_with_NOR_gates.png)
+  ![ex](./img/3.24_example_NOR.png)
 
 ### 3.7 Other Two‐Level Implementations
 
 ### 3.8 Exclusive‐OR Function
 
-### 3.9 Hardware Description Language
+### 3.9 Hardware Description Language (HDL)
+
+- language for describing language in textual form
+- documentation language for prototyping logic
+- design entry - creates an HDL-based description of the functionality that is to be implemented in hardware
+- logic simulation - displays behavior of a digital system
+- logic synthesis - the process of deriving a list of physical components and their interconnections (called a netlist) from the model of a digital system described in an HDL
+- Timing verification confirms that the fabricated, integrated circuit will operate at a specified speed
+- two standard HDL Languages IN IEEE
+  - VHDL - very high speed IC Hardware Descriptiton language
+    - VHSIC = very high speed IC
+    - more difficult to learn
+  - Verilog HDL
+    - OPEN SOURCED
+    - .v, .verilog, .vlg, or .vh
+- Gate Delays
+  - in ns, how long to travel from input to out of the gate
 
 ## 4 Combinational Logic
 
@@ -459,7 +504,6 @@
 ![decoder](./img/4.7_TT_8-2_encoder.png)
 - Priority Encoder
 ![decoder](./img/4.8_TT_Priority_Encoder.png)
-![decoder](./img/4.8_TT_Priority_Encoder.png)
 ![decoder](./img/4.22_Priority_encoder_map.png)
 
 ### 4.11 Multiplexers
@@ -487,10 +531,20 @@
 
 ### 5.2 Sequential Circuits
 
+- synchronous
+  - behaviour defined at discrete units of time
+- asynchronous
+  - determined at any point in time
+  - ordered
+  - uses time delay devices
+
 ### 5.3 Storage Elements: Latches
 
 ### 5.4 Storage Elements: Flip‐Flops
 
+- flip flops - storage element holding one bit of information
+  - similar to a memoized selector
+  
 ### 5.5 Analysis of Clocked Sequential Circuits
 
 ### 5.6 Synthesizable HDL Models of Sequential Circuits

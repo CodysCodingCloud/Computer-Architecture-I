@@ -1,0 +1,50 @@
+/* VeriLog cheat sheet for 100 keywords */
+// .v .vlg .verlog .vh
+// module, endmodule, input, output, wire, and, or, not
+
+module Simple_Circuit (A, B, C, D, E); 
+    output  D,E;
+    input   A, B, C;
+    wire    w1;
+    and     G1 (w1, A, B); // Optional gate instance name 
+    not     G2 (E, C);      // outputs are alwayfs first
+    or      G3 (D, w1, E);
+endmodule
+
+// 'timescale 1ns/100ps // compiler directive for timing/ pricision 1ns/100ps = .1ns
+
+module Simple_Circuit (A, B, C, D, E); 
+    output  D,E;
+    input   A, B, C;
+    wire    w1;
+
+    and     #(30) G1 (w1, A, B); // Optional gate instance name 
+    not     #(10) G2 (E, C);      // outputs are alwayfs first
+    or      #(20) G3 (D, w1, E);
+endmodule
+
+
+module Circuit_Boolean_CA (E, F, A, B, C, D); 
+    output E, F;
+    input A, B, C, D;
+    assign E = A || (B && C) || ((!B) && D);
+    assign F = ((!B) && C) || (B && (!C) && (!D)); 
+endmodule
+
+// Verilog model: User-defined Primitive
+primitive UDP_02467 (D, A, B, C); // name for custom primative like and/or
+    output D;
+    input A, B, C;
+//Truth table for D 5 f (A, B, C) 5 sum(0, 2, 4, 6, 7); 
+    table
+//      A   B   C   :   D
+        0   0   0   :   1;
+        0   0   1   :   0;
+        0   1   0   :   1;
+        0   1   1   :   0;
+        1   0   0   :   1;
+        1   0   1   :   0;
+        1   1   0   :   1;
+        1   1   1   :   0;
+    endtable 
+endprimitive

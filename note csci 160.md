@@ -356,6 +356,9 @@
 
 ### 3.8 Exclusive‐OR Function
 
+- XOR
+  - chained XOR = true with odd number of trues
+
 ### 3.9 Hardware Description Language (HDL)
 
 - language for describing language in textual form
@@ -473,15 +476,34 @@
 #### Adder-Subtractor
 
 - combinational circuit for binary adding and subtraction
+- A - B => A + rc(B) => A + r(B) + M=1
+  - the extra 1 can be the input carry C_0 in the full adder
+  - M=0 : adds A+B, No change to B
+  - M=1 : subtracts A-B, B is converted to 1's comp and 1 is added to C_0 ~ 2's comp
   ![4bit adder subtractor](./img/4.13_four-bit_adder_subtractor_with_overflow_detector.png)
+  - unsigned addition
+    - C = overflow indicator
+  - unsigned subtraction
+    - C = borrow indicator
+  - signed addition and subtraction
+    - V = overflow detector when V=1
+    - C = the new sign
 
 ### 4.6 Decimal Adder
 
+- min of 9 inputs, 5 outputs
+
+#### BD Decimal adder
+
+![bcd adder](./img/4.14_BCD_adder.png)
+
 ### 4.7 Binary Multiplier
+
+![2b2b binary multiplier](./img/4.15_2b_2b_binary_multiplier.png)
+![4b3b binary multiplier](./img/4.16_4b-3b_binary_multiplier.png)
 
 ### 4.8 Magnitude Comparator
 
-![4b binary multiplier](./img/4.16_4b-3b_binary_multiplier.png)
 ![4b magnitude comparator](./img/4.17_Four-bit_magnitude_comparator.png)
 
 ### 4.9 Decoders
@@ -494,21 +516,31 @@
     - only one of the outputs will be 1, rest = 0
 ![3-to-8](./img/4.18_Three-to-eight-line_decoder.png)
 ![TT 3-to-8](./img/4.6_Truth_Table_Three-to-Eight-Line_Decoder.png)
+![decoder–demultiplexer.](./img/4.19_2-4_line_decoder_w_enable_input.png)
+  - decoder–demultiplexer
+    - uses NAND for final output to select by 0 instead of using 1
+    - demultiplexer uses seletion inputs to select a single line
 ![4x16](./img/4.20_4x16_decoder_composite.png)
+  - combination of smaller decoders (3-8 decoder) with selection inputs to double the number of output signals
+  - combination of 2 standard components may be cheaper alternative than creating a single purpurpose circuit
 ![decoder](./img/4.21_full_adder_w_decoder.png)
 
 ### 4.10 Encoders
 
 - reverse of decoder
 - 2^n input liens => n output lines
-![decoder](./img/4.7_TT_8-2_encoder.png)
+![encoder](./img/4.7_TT_8-2_encoder.png)
 - Priority Encoder
-![decoder](./img/4.8_TT_Priority_Encoder.png)
-![decoder](./img/4.22_Priority_encoder_map.png)
+  - ensures only only one input line is concidered at a time
+![encoder](./img/4.8_TT_Priority_Encoder.png)
+![encoder](./img/4.22_Priority_encoder_map.png)
+![encoder](./img/4.23_4_input_Priority_encoder.png)
 
 ### 4.11 Multiplexers
 
-- ~data selector - selects on of the inputs and steers it to the output.
+- ~data selector - selects one of the inputs and steers it to the output.
+  - steers to the next boolean gate.
+  - Selector input with OR gates at the end to capture out selected Inputs
 ![decoder](./img/4.24_2-1_multiplexer.png)
 ![decoder](./img/4.25_4-1_multiplexer.png)
 - Example
@@ -516,6 +548,7 @@
 ![decoder](./img/4.27_Bool_func_w_multiplexer.png)
 ![decoder](./img/4.28_4_input_funct_w_multiplexer.png)
 - three state gates
+  - AC = > Output[ A || high impedence(off/open circuit)]
 ![decoder](./img/4.29_3_state_buffer.png)
 ![decoder](./img/4.30_multiplexer_w_3_state_gate.png)
 <!-- ![decoder](./img/4) -->

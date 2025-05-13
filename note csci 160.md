@@ -564,14 +564,28 @@
 
 ### 5.2 Sequential Circuits
 
+- a sequential circuit is specified by a time sequence of inputs, outputs, and internal states
 - synchronous
   - behaviour defined at discrete units of time
+  - clocked sequential circuits
+    - synced by clock generator: clock and clk
+    - storage occurs on clock pulses
+![clocked](./img/5.2_Synchronous_clocked_sequential_circuit.png)
+  - uses flipflop memory
 - asynchronous
   - determined at any point in time
   - ordered
   - uses time delay devices
 
 ### 5.3 Storage Elements: Latches
+
+- latches: Storage elements that operate with signal levels (rather than signal transitions)
+  - level sensitive
+- flip-flops: are controlled by a clock transition
+  - edge sensitive
+- latches are basic units: used to construct flipclops
+- SR Latch
+![clocked](./img/5.3%20SR%20latch%20with%20NOR.png)
 
 ### 5.4 Storage Elements: Flip‐Flops
 

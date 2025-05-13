@@ -605,7 +605,13 @@
 
 - flip flops - storage element holding one bit of information
   - similar to a memoized selector
-  
+- D Flop Flop
+  - uses two D Latches
+  - Triggered on negative clock pulse(en) transition
+- T Flip Flop
+  - uses three D Latches
+  - triggered on positive clock pulse transition
+
 ### 5.5 Analysis of Clocked Sequential Circuits
 
 ### 5.6 Synthesizable HDL Models of Sequential Circuits

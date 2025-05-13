@@ -585,7 +585,21 @@
   - edge sensitive
 - latches are basic units: used to construct flipclops
 - SR Latch
-![clocked](./img/5.3%20SR%20latch%20with%20NOR.png)
+  - Set=>0,0=>Reset=>0,0
+  - Set State = Q = 1
+  - Reset State = Q' = 1
+  - pulse ttravels from where the 1 is at(R or S) throughout the latch
+  - 1,1 can cause indeterminate state => impossible error
+![clocked](./img/5.3_SR_latch_with_NOR.png)
+- S'R' latch
+  - pulse travels through the 0 throughout the NAND latch
+![clocked](./img/5.4_SR_latch_with_NAND.png)
+![clocked](./img/5.5_SR_latch_with_control_input.png)
+- D Latch (Transparent Latch)
+  - ensures no indeterminate states using
+  - D Data input and En enable input => Q=1=Set, Q=0=Reset
+  - Set state == D=1
+![clocked](./img/5.6_D_latch.png)
 
 ### 5.4 Storage Elements: Flip‐Flops
 

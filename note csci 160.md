@@ -586,10 +586,13 @@
 - latches are basic units: used to construct flipclops
 - SR Latch
   - Set=>0,0=>Reset=>0,0
+  - Q=1 => hold => Q=0 => hold =>repect
   - Set State = Q = 1
   - Reset State = Q' = 1
+  - when set or reset, the output is "latched" into the feed back look inbetween NAND gates
   - pulse ttravels from where the 1 is at(R or S) throughout the latch
   - 1,1 can cause indeterminate state => impossible error
+  - Active high makes use of NAND gates
 ![clocked](./img/5.3_SR_latch_with_NOR.png)
 - S'R' latch
   - pulse travels through the 0 throughout the NAND latch
@@ -600,19 +603,39 @@
   - D Data input and En enable input => Q=1=Set, Q=0=Reset
   - Set state == D=1
 ![clocked](./img/5.6_D_latch.png)
+![clocked](./img/5.7_Graphic_symbols_for_latches.png)
 
 ### 5.4 Storage Elements: Flip‐Flops
 
 - flip flops - storage element holding one bit of information
-  - similar to a memoized selector
+  - similar to a memoized selector, however that is use for grounding activation
+  - output changes on clock edges/ transitions
+  ![clocked](./img/5.8_Clock_response_in_latch_with_flip-flip.png)
 - D Flop Flop
   - uses two D Latches
   - Triggered on negative clock pulse(en) transition
+  ![clocked](./img/5.9_Master-slave_D_flip-flop.png)
+  ![clocked](./img/5.10_D-type_pos-edge-triggered_flip-flop.png)
+  ![clocked](./img/5.11_Graphic_symbol_for_edge-triggered_D_flip-flip.png)
 - T Flip Flop
   - uses three D Latches
   - triggered on positive clock pulse transition
+  ![clocked](./img/5.12.13_jk_and_T_flip-flop.png)
+  ![clocked](./img/5.1_T_flip-flop_characteristic_table.png)
 
 ### 5.5 Analysis of Clocked Sequential Circuits
+
+![clocked](./img/5.14_D_flip-flip_with_asynchronous_reset.png)
+![clocked](./img/5.15_Example_of_sequential_circuit.png)
+![clocked](./img/5.15.5.2_Table.png)
+![clocked](./img/5.15.5.3_State_diagram.png)
+![clocked](./img/5.17_Sequential_circuit_with_D_flip_flop.png)
+![clocked](./img/5.18_Sequential_citcuit_with_jk_flip_flop.png)
+![clocked](./img/5.18.5.4_state_table_of_jk_flip_flop.png)
+![clocked](./img/5.19_State_diagram_for_jk_flip_flop.png)
+![clocked](./img/5.20_Sequential_circuit_with_T_flip_flop.png)
+![clocked](./img/5.20.5.5_State_table_for_jk_flip_flop.png)
+![clocked](./img/5.21_Block_diag_of_Mealy_and_Moore_state_machines.png)
 
 ### 5.6 Synthesizable HDL Models of Sequential Circuits
 

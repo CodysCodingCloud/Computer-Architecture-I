@@ -476,7 +476,7 @@
 #### Adder-Subtractor
 
 - combinational circuit for binary adding and subtraction
-- A - B => A + rc(B) => A + r(B) + M=1
+- A - B => A + rc(B) => A + dc(B) + M=1
   - the extra 1 can be the input carry C_0 in the full adder
   - M=0 : adds A+B, No change to B
   - M=1 : subtracts A-B, B is converted to 1's comp and 1 is added to C_0 ~ 2's comp
@@ -546,7 +546,7 @@
 - Example
 ![decoder](./img/4.26_quadruple_2-1_multiplexer.png)
 ![decoder](./img/4.27_Bool_func_w_multiplexer.png)
-![decoder](./img/4.28_4_input_funct_w_multiplexer.png)
+![4x1 mux](./img/4.28_4_input_funct_w_multiplexer.png)
 - three state gates
   - AC = > Output[ A || high impedence(off/open circuit)]
 ![decoder](./img/4.29_3_state_buffer.png)
